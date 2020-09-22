@@ -43,7 +43,7 @@ script:
         electronuserland/builder:wine \
         /bin/bash -c "yarn install --link-duplicates --pure-lockfile && yarn release --win"
     elif [ "$TRAVIS_OS_NAME" == "windows" ]; then
-      npm install;
+      npm electron:build;
       npm run build;
     else
       security create-keychain -p $KEYCHAIN_PASSWORD build.keychain;
@@ -51,8 +51,8 @@ script:
       security unlock-keychain -p $KEYCHAIN_PASSWORD build.keychain;
       echo $KEYSTORE | base64 --decode - > keystore.p12;
       security import keystore.p12 -k build.keychain -P $KEYCHAIN_PASSWORD -T /usr/bin/codesign;
-      yarn install;
-      yarn release;
+      yarn electron:build;
+      yarn build;
     fi
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
@@ -60,3 +60,11 @@ before_cache:
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"
+
+# deploy:
+#   provider: releases
+#   api_key: "GITHUB OAUTH TOKEN"
+#   file: "FILE TO UPLOAD"
+#   skip_cleanup: true
+#   on:
+#     tags: true
