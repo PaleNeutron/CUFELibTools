@@ -1,5 +1,7 @@
 # CUFE seat book tools
 
+[![Build Status](https://travis-ci.org/PaleNeutron/CUFELibTools.svg?branch=master)](https://travis-ci.org/PaleNeutron/CUFELibTools)
+
 ## Features
 
 [x] search available seat in sepecific time
