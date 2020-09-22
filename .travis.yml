@@ -3,28 +3,28 @@ matrix:
     - os: osx
       osx_image: xcode9.4
       language: node_js
-      node_js: "8"
-      env:
-        - ELECTRON_CACHE=$HOME/.cache/electron
-        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+      node_js: "12"
+      # env:
+      #   - ELECTRON_CACHE=$HOME/.cache/electron
+      #   - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
     # Windows currently doesn't support encrypted variables.
     # Once supported uncomment this out & remove build with Docker
     #
-    # - os: windows
-    #  language: node_js
-    #  node_js: "8"
+    - os: windows
+      language: node_js
+      node_js: "12"
 
-    - os: linux
-      services: docker
-      language: generic
+    # - os: linux
+    #   services: docker
+    #   language: generic
 
 cache:
   yarn: true
   directories:
     - node_modules
-    - $HOME/.cache/electron
-    - $HOME/.cache/electron-builder
+    - dist_electron
+    - dist
 
 install:
   - |
@@ -40,10 +40,10 @@ script:
         -v ~/.cache/electron:/root/.cache/electron \
         -v ~/.cache/electron-builder:/root/.cache/electron-builder \
         electronuserland/builder:wine \
-        /bin/bash -c "yarn install --link-duplicates --pure-lockfile && yarn release --win"
+        /bin/bash -c "yarn install --link-duplicates --pure-lockfile && yarn electron:build --win"
     elif [ "$TRAVIS_OS_NAME" == "windows" ]; then
       npm install;
-      npm run release;
+      npm run electron:build;
     else
       # security create-keychain -p $KEYCHAIN_PASSWORD build.keychain;
       # security default-keychain -s build.keychain;
@@ -51,7 +51,7 @@ script:
       # echo $KEYSTORE | base64 --decode - > keystore.p12;
       # security import keystore.p12 -k build.keychain -P $KEYCHAIN_PASSWORD -T /usr/bin/codesign;
       yarn install;
-      yarn release;
+      yarn electron:build;
     fi
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
