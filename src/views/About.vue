@@ -10,6 +10,6 @@
       提醒<br/>
       Android/IOS 客户端<br/>
     </p>
-    <p>开源地址: <a href=""></a></p>
+    <p>开源地址: <a href="https://github.com/PaleNeutron/CUFELibTools">https://github.com/PaleNeutron/CUFELibTools</a></p>
   </div>
 </template>
