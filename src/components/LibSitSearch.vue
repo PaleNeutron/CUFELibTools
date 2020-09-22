@@ -26,10 +26,10 @@ export default {
     return {
       selected_date: moment(),
       start_time: moment(),
-      end_time: moment(),
+      end_time: moment("10:40", "HH:mm"),
       loading: false,
       moment,
-      search_result: [],
+      search_result: ["请注意只有在校园网内才可使用"],
       room_ids: [
         100496019,
         100496021,
@@ -61,6 +61,7 @@ export default {
       let results = rooms.map((room_obj) => {
         return this.find_sit(room_obj, self.start_time, self.end_time);
       });
+      console.log(results);
       let filtered_result = results.filter(function (el) {
         return el != null;
       });
@@ -129,8 +130,8 @@ export default {
             return sit_obj.name;
           }
         }
-        return null;
       }
+      return null;
     },
   },
 };

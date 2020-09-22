@@ -1,5 +1,5 @@
 {
-  "name": "vue-electron-notes",
+  "name": "CUFELibTools",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,7 +15,6 @@
   "dependencies": {
     "ant-design-vue": "^1.6.5",
     "axios": "^0.20.0",
-    "axios-jsonp": "^1.0.4",
     "core-js": "^3.6.5",
     "electron-debug": "^3.1.0",
     "jshint": "^2.12.0",

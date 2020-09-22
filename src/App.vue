@@ -31,9 +31,9 @@
       </a-menu>
     </a-layout-sider>
     <a-layout>
-      <a-layout-header :style="{ background: '#fff', padding: 0 }" />
+      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" >座位查找工具</a-layout-header> -->
       <a-layout-content :style="{ margin: '24px 16px 0' }">
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+        <div :style="{ padding: '24px', background: '#fff', minHeight: 'calc(100vh - 100px)' }">
           <router-view/>
         </div>
       </a-layout-content>

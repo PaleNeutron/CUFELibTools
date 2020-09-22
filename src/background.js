@@ -42,8 +42,16 @@ function createWindow() {
     win = null
   })
 }
+
+//for debug
 app.allowRendererProcessReuse = true
+
+// for cors
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
+
+
+// for windows squirrel distribution
+// if (require('electron-squirrel-startup')) app.quit();
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

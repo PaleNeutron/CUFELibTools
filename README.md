@@ -1,24 +1,14 @@
-# vue-electron-notes
+# CUFE seat book tools
 
-## Project setup
-```
-yarn install
-```
+## Features
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+[x] search available seat in sepecific time
+[ ] login & book in this client
+[ ] redirect connections so that free users from using CUFE wifi
+[ ] auto book seats on schedule
+[ ] send notification before critical time
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Features that contributors could implement but won't be public
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[ ] find specific student
+[ ] findout student name of specific seat
