@@ -9,7 +9,9 @@
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "postuninstall": "electron-builder install-app-deps",
+    "clean": "rimraf ./dist",
+    "release": "electron-builder --publish always"
   },
   "main": "background.js",
   "dependencies": {
@@ -37,5 +39,72 @@
     "less-loader": "^5.0.0",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.4",
     "vue-template-compiler": "^2.6.11"
+  },
+  "build": {
+    "appId": "com.johnlyu.cufelibtools",
+    "productName": "CUFE Lib Tools",
+    "copyright": "MIT",
+    "files": [
+      "**/*",
+      "build/Release/*",
+      "assets/icons/*.*",
+      "assets/icons/mac/*.*",
+      "assets/icons/png/*.*",
+      "assets/icons/win/*.*"
+    ],
+    "mac": {
+      "category": "public.build.automation",
+      "icon": "public/favicon.png"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 440,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "artifactName": "cufe_lib_tools-${version}.${ext}"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable"
+        }
+      ],
+      "icon": "assets/icons/win/icon.ico"
+    },
+    "nsis": {
+      "runAfterFinish": true,
+      "installerIcon": "assets/icons/win/icon.ico",
+      "artifactName": "cufe_lib_tools-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "cufe_lib_tools.exe"
+    },
+    "appx": {
+      "applicationId": "cufe_lib_tools",
+      "backgroundColor": "#464646",
+      "identityName": "cufe_lib_tools",
+      "publisherDisplayName": "JohnLyu",
+      "artifactName": "cufe_lib_tools-${version}.${ext}"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "releaseType": "release"
+      }
+    ]
   }
 }
