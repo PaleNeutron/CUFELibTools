@@ -18,19 +18,19 @@
       <a-menu theme="dark" mode="inline" :default-selected-keys="['4']">
         <a-menu-item key="1">
           <router-link  to="/">
-          <a-icon type="user" />
+          <a-icon type="read" />
           <span class="nav-text">home</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="2">
           <router-link  to="/LibPageWarp">
-          <a-icon type="video-camera" />
+          <a-icon type="book" />
           <span class="nav-text">lib system</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="3">
           <router-link  to="/about">
-          <a-icon type="video-camera" />
+          <a-icon type="smile" />
           <span class="nav-text">about</span>
           </router-link>
         </a-menu-item>
