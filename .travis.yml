@@ -1,9 +1,9 @@
 jobs:
   include:
-    - os: osx
-      osx_image: xcode10.2
-      language: node_js
-      node_js: "12"
+    # - os: osx
+    #   osx_image: xcode10.2
+    #   language: node_js
+    #   node_js: "12"
       # env:
       #   - ELECTRON_CACHE=$HOME/.cache/electron
       #   - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
@@ -69,7 +69,7 @@ before_deploy:
   - git tag $TRAVIS_TAG
 
 deploy:
-  skip_cleanup: true
+  cleanup: false
   provider: releases
   token: "$GITHUB_OAUTH_TOKEN"
   file_glob: true
@@ -77,5 +77,5 @@ deploy:
     - "dist_electron/*.zip"
     - "dist_electron/*.exe"
   on:
-    # tags: true
-    branch: master
+    tags: true
+  #   branch: master
