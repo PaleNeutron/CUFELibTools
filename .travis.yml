@@ -23,8 +23,8 @@ cache:
   yarn: true
   directories:
     - node_modules
-    - dist_electron
-    - dist
+    # - dist_electron
+    # - dist
 
 # install:
 #   - |
