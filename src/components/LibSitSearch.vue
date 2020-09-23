@@ -1,9 +1,26 @@
 <template>
   <a-layout class="LibSitSearch">
+    <a-descriptions >
+      <a-descriptions-item >{{info_string}}</a-descriptions-item>
+    </a-descriptions>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <a-date-picker v-model="selected_date" placeholder="选择日期" :defaultValue="moment()"></a-date-picker>
-    <a-time-picker v-model="start_time" format="HH:mm" placeholder="开始时间" :defaultValue="moment()"></a-time-picker>
-    <a-time-picker v-model="end_time" format="HH:mm" placeholder="结束时间" :defaultValue="moment()"></a-time-picker>
+    <div>
+      <a-row type="flex" justify="space-around">
+        <a-time-picker
+          v-model="start_time"
+          format="HH:mm"
+          placeholder="开始时间"
+          :defaultValue="moment()"
+        ></a-time-picker>
+        <a-time-picker
+          v-model="end_time"
+          format="HH:mm"
+          placeholder="结束时间"
+          :defaultValue="moment()"
+        ></a-time-picker>
+      </a-row>
+    </div>
     <a-button type="primary" :loading="loading" @click="enterLoading">查找可用座位</a-button>
     <hr />
     <!-- <h2>查找结果</h2> -->
@@ -29,7 +46,8 @@ export default {
       end_time: moment("22:40", "HH:mm"),
       loading: false,
       moment,
-      search_result: ["请注意只有在校园网内才可使用"],
+      info_string: "请注意必须在校园网内才可使用",
+      search_result: [],
       room_ids: [
         100496019,
         100496021,
@@ -66,6 +84,10 @@ export default {
         return el != null;
       });
       // console.log(filtered_result);
+      if (filtered_result === undefined || filtered_result.length == 0) {
+        // array empty or does not exist
+        self.info_string = "抱歉没有找到可用座位";
+      }
       self.search_result = filtered_result;
       self.loading = false;
     },
