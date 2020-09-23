@@ -68,5 +68,5 @@ deploy:
     - "dist_electron/*.zip"
     - "dist_electron/*.exe"
   on:
-    # tags: true
+    tags: true
     branch: master
