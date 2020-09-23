@@ -11,6 +11,10 @@
       <li>提醒</li>
       <li>Android/IOS 客户端</li>
     </ul>
+    <p>不可能开发(作者无需求)的功能:<br/>
+    <ul>
+      <li>相邻的座位搜索</li>
+    </ul>
     </p>
     <p>开源地址: <a href="https://github.com/PaleNeutron/CUFELibTools">https://github.com/PaleNeutron/CUFELibTools</a></p>
   </div>

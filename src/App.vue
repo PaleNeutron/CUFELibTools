@@ -23,6 +23,12 @@
           </router-link>
         </a-menu-item>
         <a-menu-item key="2">
+          <router-link  to="/LibPageWarp">
+          <a-icon type="video-camera" />
+          <span class="nav-text">lib system</span>
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="3">
           <router-link  to="/about">
           <a-icon type="video-camera" />
           <span class="nav-text">about</span>

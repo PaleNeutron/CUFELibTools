@@ -1,7 +1,7 @@
 <template>
   <a-layout class="LibSitSearch">
-    <a-descriptions >
-      <a-descriptions-item >{{info_string}}</a-descriptions-item>
+    <a-descriptions>
+      <a-descriptions-item>{{info_string}}</a-descriptions-item>
     </a-descriptions>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <a-date-picker v-model="selected_date" placeholder="选择日期" :defaultValue="moment()"></a-date-picker>
@@ -29,6 +29,16 @@
         <a-card :title="item"></a-card>
       </a-list-item>
     </a-list>
+    <a-row type="flex" justify="end">
+      <a-col v-if="link_enabled">
+        <router-link to="/LibPageWarp">
+          <a-button type="primary">
+            图书馆选座系统连接
+            <a-icon type="right" />
+          </a-button>
+        </router-link>
+      </a-col>
+    </a-row>
   </a-layout>
 </template>
 
@@ -45,6 +55,7 @@ export default {
       start_time: moment(),
       end_time: moment("22:40", "HH:mm"),
       loading: false,
+      link_enabled: false,
       moment,
       info_string: "请注意必须在校园网内才可使用",
       search_result: [],
@@ -87,6 +98,8 @@ export default {
       if (filtered_result === undefined || filtered_result.length == 0) {
         // array empty or does not exist
         self.info_string = "抱歉没有找到可用座位";
+      } else {
+        self.link_enabled = true;
       }
       self.search_result = filtered_result;
       self.loading = false;
