@@ -26,7 +26,7 @@ export default {
     return {
       selected_date: moment(),
       start_time: moment(),
-      end_time: moment("10:40", "HH:mm"),
+      end_time: moment("22:40", "HH:mm"),
       loading: false,
       moment,
       search_result: ["请注意只有在校园网内才可使用"],
