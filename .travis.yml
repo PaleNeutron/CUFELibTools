@@ -67,5 +67,5 @@ deploy:
     - "dist_electron/*.zip"
     - "dist_electron/*.exe"
   skip_cleanup: true
-  on:
-    tags: true
+  # on:
+  #   tags: true
