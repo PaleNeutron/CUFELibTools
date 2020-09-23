@@ -69,7 +69,7 @@ before_deploy:
   - git tag $TRAVIS_TAG
 
 deploy:
-  cleanup: false
+  skip_cleanup: true
   provider: releases
   token: "$GITHUB_OAUTH_TOKEN"
   file_glob: true
