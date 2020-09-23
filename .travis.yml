@@ -1,4 +1,4 @@
-matrix:
+jobs:
   include:
     - os: osx
       osx_image: xcode10.2
@@ -53,6 +53,7 @@ script:
       yarn install;
       yarn electron:build;
     fi
+  - ls dist_electron
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
 
@@ -62,11 +63,10 @@ branches:
 
 deploy:
   provider: releases
-  api_key: "$GITHUB_OAUTH_TOKEN"
+  token: "$GITHUB_OAUTH_TOKEN"
   file:
     - "dist_electron/*.zip"
     - "dist_electron/*.exe"
-  skip_cleanup: true
   on:
     # tags: true
     branch: master
