@@ -56,10 +56,7 @@ script:
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
 
-branches:
-  only:
-  - master
-  - /v\d+\.\d+[a-z]/
+all_branches: true
 
 deploy:
   provider: releases
