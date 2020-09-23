@@ -62,6 +62,7 @@ before_cache:
 #     - "/^v\\d+\\.\\d+\\.\\d+$/"
 
 deploy:
+  skip_cleanup: true
   provider: releases
   token: "$GITHUB_OAUTH_TOKEN"
   file:
@@ -70,4 +71,3 @@ deploy:
   on:
     tags: true
     branch: master
-    
