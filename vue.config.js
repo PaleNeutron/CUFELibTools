@@ -4,7 +4,7 @@ module.exports = {
         builderOptions: {
           // options placed here will be merged with default configuration and passed to electron-builder
           "appId": "com.johnlyu.cufelibtools",
-          "productName": "CUFE Lib Tools",
+          "productName": "CUFELibTools",
           "copyright": "MIT",
           "mac": {
             "category": "public.build.automation",
@@ -23,7 +23,7 @@ module.exports = {
                 "path": "/Applications"
               }
             ],
-            "artifactName": "cufe_lib_tools-${version}.${ext}"
+            // "artifactName": "cufe_lib_tools-${version}.${ext}"
           },
           "win": {
             "target": [
@@ -42,17 +42,17 @@ module.exports = {
           "nsis": {
             "runAfterFinish": true,
             "installerIcon": "assets/icons/win/icon.ico",
-            "artifactName": "cufe_lib_tools-${version}.${ext}"
+            // "artifactName": "cufe_lib_tools-${version}.${ext}"
           },
-          "portable": {
-            "artifactName": "cufe_lib_tools.exe"
-          },
+        //   "portable": {
+        //     "artifactName": "cufe_lib_tools-${version}-full.${ext}"
+        //   },
           "appx": {
             "applicationId": "cufe_lib_tools",
             "backgroundColor": "#464646",
             "identityName": "cufe_lib_tools",
             "publisherDisplayName": "JohnLyu",
-            "artifactName": "cufe_lib_tools-${version}.${ext}"
+            // "artifactName": "cufe_lib_tools-${version}.${ext}"
           },
           "publish": [
             {
