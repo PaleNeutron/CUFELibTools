@@ -53,7 +53,7 @@ script:
       yarn install;
       yarn electron:build;
     fi
-  - ls dist_electron
+  - ls -l dist_electron
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
 
