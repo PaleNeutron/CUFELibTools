@@ -26,11 +26,13 @@ cache:
     - dist_electron
     - dist
 
-install:
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew install yarn;
-    fi
+# install:
+#   - |
+#     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+#       brew install yarn;
+#     fi
+
+
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
@@ -61,12 +63,12 @@ before_cache:
 #   except:
 #     - "/^v\\d+\\.\\d+\\.\\d+$/"
 
-before_deploy:
-  # Set up git user name and tag this commit
-  - git config --local user.name "JohnLyu"
-  - git config --local user.email "johnlyusmile@google.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
+# before_deploy:
+#   # Set up git user name and tag this commit
+#   - git config --local user.name "JohnLyu"
+#   - git config --local user.email "johnlyusmile@google.com"
+#   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+#   - git tag $TRAVIS_TAG
 
 deploy:
   skip_cleanup: true
@@ -77,5 +79,5 @@ deploy:
     - "dist_electron/*.zip"
     - "dist_electron/*.exe"
   on:
-    # tags: true
+    tags: true
     branch: master
